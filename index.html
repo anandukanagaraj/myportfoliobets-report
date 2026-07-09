@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stock Monitor Reports</title>
+<title>Stock Monitor Report</title>
 <style>
 :root {
     color-scheme: light;
@@ -37,6 +37,10 @@ body {
         linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
     color: var(--ink);
     font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
 }
 
 .page {
@@ -202,6 +206,7 @@ h1 {
 
 .table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 table {
@@ -366,6 +371,7 @@ tbody tr:hover {
     width: 100%;
     height: auto;
     margin-top: 26px;
+    overflow: visible;
 }
 
 .axis {
@@ -516,6 +522,7 @@ th.sorted-desc::after {
     .hero {
         align-items: stretch;
         flex-direction: column;
+        padding: 22px;
     }
 
     .hero-profit {
@@ -530,21 +537,161 @@ th.sorted-desc::after {
     .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .chart-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .chart-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        width: 100%;
+        margin-top: 18px;
+    }
+
+    .chart-stat {
+        min-width: 0;
+    }
+
+    .chart-stat + .chart-stat {
+        padding-left: 12px;
+    }
 }
 
 @media (max-width: 640px) {
     .page {
-        width: min(100% - 20px, 1220px);
-        padding-top: 10px;
+        width: 100%;
+        padding: 10px 10px 28px;
     }
 
     h1 {
-        font-size: 27px;
+        font-size: 26px;
+    }
+
+    .hero {
+        padding: 18px;
+        border-radius: 0;
+    }
+
+    .hero-meta {
+        font-size: 13px;
+    }
+
+    .hero-metrics {
+        gap: 10px;
+    }
+
+    .hero-profit {
+        min-width: 0;
+        padding: 14px;
+    }
+
+    .hero-profit strong {
+        font-size: 23px;
     }
 
     .cards,
     .grid {
         grid-template-columns: 1fr;
+    }
+
+    .cards {
+        gap: 10px;
+        margin: 12px 0;
+    }
+
+    .card {
+        min-height: 0;
+        padding: 14px;
+    }
+
+    .card p {
+        min-height: 0;
+        font-size: 22px;
+    }
+
+    .section {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }
+
+    .section + .section {
+        margin-top: 12px;
+    }
+
+    .section h2 {
+        padding: 14px 12px;
+        font-size: 17px;
+    }
+
+    .value-chart {
+        padding: 16px 10px 18px;
+    }
+
+    .value-chart h2 {
+        font-size: 19px;
+    }
+
+    .period-controls {
+        width: 100%;
+        gap: 6px;
+    }
+
+    .period-button,
+    .pagination button {
+        min-height: 34px;
+        padding: 6px 11px;
+        font-size: 13px;
+    }
+
+    .chart-stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .chart-stat + .chart-stat {
+        padding-left: 0;
+        padding-top: 10px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .chart-stat strong {
+        font-size: 19px;
+    }
+
+    .line-chart {
+        min-height: 210px;
+        margin-top: 16px;
+    }
+
+    .chart-label {
+        font-size: 11px;
+    }
+
+    th,
+    td {
+        padding: 11px 10px;
+        font-size: 13px;
+    }
+
+    .subtle {
+        font-size: 11px;
+    }
+
+    .pill {
+        min-width: 82px;
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+
+    .pagination {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 12px;
     }
 }
 </style>
@@ -555,7 +702,7 @@ th.sorted-desc::after {
         <div>
             <p class="eyebrow">Daily Portfolio Report</p>
             <h1>Stock Monitor</h1>
-            <p class="hero-meta">Generated 09-Jul-2026 at 01:09 PM</p>
+            <p class="hero-meta">Generated 09-Jul-2026 at 03:31 PM</p>
         </div>
         <div class="hero-metrics">
             <div class="hero-profit">
@@ -613,7 +760,7 @@ th.sorted-desc::after {
                 <button class="period-button active" data-period="all" type="button">All</button>
             </div>
         </div>
-        <div id="portfolio-chart" data-points='[{&quot;label&quot;: &quot;TANLA&quot;, &quot;date&quot;: &quot;2026-01-23&quot;, &quot;invested&quot;: 10068.0, &quot;investedAmount&quot;: 10068.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 503.4, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;CHAMBLFERT&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 20761.75, &quot;investedAmount&quot;: 10693.75, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 25.0, &quot;buyPrice&quot;: 427.75, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;MOTILALOFS&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 31111.75, &quot;investedAmount&quot;: 10350.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 15.0, &quot;buyPrice&quot;: 690.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;KALYANIKWELLERS&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 41427.25, &quot;investedAmount&quot;: 10315.5, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 26.0, &quot;buyPrice&quot;: 396.75, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;ICICIB22&quot;, &quot;date&quot;: &quot;2026-04-15&quot;, &quot;invested&quot;: 103217.25, &quot;investedAmount&quot;: 61790.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 500.0, &quot;buyPrice&quot;: 123.58, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;DEVYANI&quot;, &quot;date&quot;: &quot;2026-04-27&quot;, &quot;invested&quot;: 114450.25, &quot;investedAmount&quot;: 11233.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 100.0, &quot;buyPrice&quot;: 112.33, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;NDRAUTO&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 124980.25, &quot;investedAmount&quot;: 10530.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 13.0, &quot;buyPrice&quot;: 810.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;CARBORUNIV&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 135932.25, &quot;investedAmount&quot;: 10952.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 10.0, &quot;buyPrice&quot;: 1095.2, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;ATULAUTO&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 146275.25, &quot;investedAmount&quot;: 10343.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 517.15, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;ECLERX&quot;, &quot;date&quot;: &quot;2026-05-19&quot;, &quot;invested&quot;: 157136.45, &quot;investedAmount&quot;: 10861.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 7.0, &quot;buyPrice&quot;: 1551.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;PURVA&quot;, &quot;date&quot;: &quot;2026-05-19&quot;, &quot;invested&quot;: 167370.45, &quot;investedAmount&quot;: 10234.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 43.0, &quot;buyPrice&quot;: 238.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;OBEROIRLTY&quot;, &quot;date&quot;: &quot;2026-05-25&quot;, &quot;invested&quot;: 177616.65, &quot;investedAmount&quot;: 10246.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1707.7, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;HARIOMPIPE&quot;, &quot;date&quot;: &quot;2026-05-26&quot;, &quot;invested&quot;: 188011.65, &quot;investedAmount&quot;: 10395.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 25.0, &quot;buyPrice&quot;: 415.8, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;IDEAFORGE&quot;, &quot;date&quot;: &quot;2026-06-05&quot;, &quot;invested&quot;: 200221.65, &quot;investedAmount&quot;: 12210.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 15.0, &quot;buyPrice&quot;: 814.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SHAKTIPUMP&quot;, &quot;date&quot;: &quot;2026-06-05&quot;, &quot;invested&quot;: 211113.65, &quot;investedAmount&quot;: 10892.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 544.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;GENESYS&quot;, &quot;date&quot;: &quot;2026-06-10&quot;, &quot;invested&quot;: 221126.65, &quot;investedAmount&quot;: 10013.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 31.0, &quot;buyPrice&quot;: 323.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;AVG&quot;, &quot;date&quot;: &quot;2026-06-11&quot;, &quot;invested&quot;: 231135.85, &quot;investedAmount&quot;: 10009.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 57.0, &quot;buyPrice&quot;: 175.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;AXISBANK&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 281195.85, &quot;investedAmount&quot;: 50060.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 4208.0, &quot;eventLabel&quot;: &quot;Realized profit&quot;, &quot;qty&quot;: 40.0, &quot;buyPrice&quot;: 1251.5, &quot;sellPrice&quot;: 1356.7, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;ASHOK LEYLAND&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 295636.85, &quot;investedAmount&quot;: 14441.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 100.0, &quot;buyPrice&quot;: 144.41, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;AAVAS&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 307021.65, &quot;investedAmount&quot;: 11384.8, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 8.0, &quot;buyPrice&quot;: 1423.1, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SUNDARMFIN&quot;, &quot;date&quot;: &quot;2026-06-15&quot;, &quot;invested&quot;: 320257.65, &quot;investedAmount&quot;: 13236.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 3.0, &quot;buyPrice&quot;: 4412.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SUDARSCHEM&quot;, &quot;date&quot;: &quot;2026-06-18&quot;, &quot;invested&quot;: 330428.25, &quot;investedAmount&quot;: 10170.6, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 11.0, &quot;buyPrice&quot;: 924.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SPECTRUM&quot;, &quot;date&quot;: &quot;2026-06-18&quot;, &quot;invested&quot;: 340979.25, &quot;investedAmount&quot;: 10551.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1758.5, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SUBROS&quot;, &quot;date&quot;: &quot;2026-06-22&quot;, &quot;invested&quot;: 351009.45, &quot;investedAmount&quot;: 10030.2, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 12.0, &quot;buyPrice&quot;: 835.85, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;HERITGFOOD&quot;, &quot;date&quot;: &quot;2026-06-25&quot;, &quot;invested&quot;: 361153.95, &quot;investedAmount&quot;: 10144.5, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 30.0, &quot;buyPrice&quot;: 338.15, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SAIL&quot;, &quot;date&quot;: &quot;2026-06-29&quot;, &quot;invested&quot;: 371315.55, &quot;investedAmount&quot;: 10161.6, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 58.0, &quot;buyPrice&quot;: 175.2, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;ONGC&quot;, &quot;date&quot;: &quot;2026-07-08&quot;, &quot;invested&quot;: 381441.73, &quot;investedAmount&quot;: 10126.18, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 41.0, &quot;buyPrice&quot;: 246.98, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;SKYGOLD&quot;, &quot;date&quot;: &quot;2026-07-09&quot;, &quot;invested&quot;: 391301.33, &quot;investedAmount&quot;: 9859.6, &quot;realized&quot;: 6854.4, &quot;realizedChange&quot;: 2646.4, &quot;eventLabel&quot;: &quot;Realized profit&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 492.98, &quot;sellPrice&quot;: 625.3, &quot;targetPrice&quot;: null}, {&quot;label&quot;: &quot;BHARTIARTL&quot;, &quot;date&quot;: &quot;2026-07-09&quot;, &quot;invested&quot;: 402952.13, &quot;investedAmount&quot;: 11650.8, &quot;realized&quot;: 6854.4, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1941.8, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: null}]'></div>
+        <div id="portfolio-chart" data-points='[{&quot;label&quot;: &quot;TANLA&quot;, &quot;date&quot;: &quot;2026-01-23&quot;, &quot;invested&quot;: 10068.0, &quot;investedAmount&quot;: 10068.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 503.4, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 635.0}, {&quot;label&quot;: &quot;CHAMBLFERT&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 20761.75, &quot;investedAmount&quot;: 10693.75, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 25.0, &quot;buyPrice&quot;: 427.75, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 520.0}, {&quot;label&quot;: &quot;MOTILALOFS&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 31111.75, &quot;investedAmount&quot;: 10350.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 15.0, &quot;buyPrice&quot;: 690.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1000.0}, {&quot;label&quot;: &quot;KALYANIKWELLERS&quot;, &quot;date&quot;: &quot;2026-03-25&quot;, &quot;invested&quot;: 41427.25, &quot;investedAmount&quot;: 10315.5, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 26.0, &quot;buyPrice&quot;: 396.75, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 500.0}, {&quot;label&quot;: &quot;ICICIB22&quot;, &quot;date&quot;: &quot;2026-04-15&quot;, &quot;invested&quot;: 103217.25, &quot;investedAmount&quot;: 61790.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 500.0, &quot;buyPrice&quot;: 123.58, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 130.0}, {&quot;label&quot;: &quot;DEVYANI&quot;, &quot;date&quot;: &quot;2026-04-27&quot;, &quot;invested&quot;: 114450.25, &quot;investedAmount&quot;: 11233.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 100.0, &quot;buyPrice&quot;: 112.33, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 140.0}, {&quot;label&quot;: &quot;NDRAUTO&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 124980.25, &quot;investedAmount&quot;: 10530.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 13.0, &quot;buyPrice&quot;: 810.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1000.0}, {&quot;label&quot;: &quot;CARBORUNIV&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 135932.25, &quot;investedAmount&quot;: 10952.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 10.0, &quot;buyPrice&quot;: 1095.2, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1380.0}, {&quot;label&quot;: &quot;ATULAUTO&quot;, &quot;date&quot;: &quot;2026-05-15&quot;, &quot;invested&quot;: 146275.25, &quot;investedAmount&quot;: 10343.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 517.15, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 600.0}, {&quot;label&quot;: &quot;ECLERX&quot;, &quot;date&quot;: &quot;2026-05-19&quot;, &quot;invested&quot;: 157136.45, &quot;investedAmount&quot;: 10861.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 7.0, &quot;buyPrice&quot;: 1551.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 2000.0}, {&quot;label&quot;: &quot;PURVA&quot;, &quot;date&quot;: &quot;2026-05-19&quot;, &quot;invested&quot;: 167370.45, &quot;investedAmount&quot;: 10234.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 43.0, &quot;buyPrice&quot;: 238.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 280.0}, {&quot;label&quot;: &quot;OBEROIRLTY&quot;, &quot;date&quot;: &quot;2026-05-25&quot;, &quot;invested&quot;: 177616.65, &quot;investedAmount&quot;: 10246.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1707.7, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 2152.0}, {&quot;label&quot;: &quot;HARIOMPIPE&quot;, &quot;date&quot;: &quot;2026-05-26&quot;, &quot;invested&quot;: 188011.65, &quot;investedAmount&quot;: 10395.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 25.0, &quot;buyPrice&quot;: 415.8, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 560.0}, {&quot;label&quot;: &quot;IDEAFORGE&quot;, &quot;date&quot;: &quot;2026-06-05&quot;, &quot;invested&quot;: 200221.65, &quot;investedAmount&quot;: 12210.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 15.0, &quot;buyPrice&quot;: 814.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1026.0}, {&quot;label&quot;: &quot;SHAKTIPUMP&quot;, &quot;date&quot;: &quot;2026-06-05&quot;, &quot;invested&quot;: 211113.65, &quot;investedAmount&quot;: 10892.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 544.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 800.0}, {&quot;label&quot;: &quot;GENESYS&quot;, &quot;date&quot;: &quot;2026-06-10&quot;, &quot;invested&quot;: 221126.65, &quot;investedAmount&quot;: 10013.0, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 31.0, &quot;buyPrice&quot;: 323.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 500.0}, {&quot;label&quot;: &quot;AVG&quot;, &quot;date&quot;: &quot;2026-06-11&quot;, &quot;invested&quot;: 231135.85, &quot;investedAmount&quot;: 10009.2, &quot;realized&quot;: 0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 57.0, &quot;buyPrice&quot;: 175.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 250.0}, {&quot;label&quot;: &quot;AXISBANK&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 281195.85, &quot;investedAmount&quot;: 50060.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 4208.0, &quot;eventLabel&quot;: &quot;Realized profit&quot;, &quot;qty&quot;: 40.0, &quot;buyPrice&quot;: 1251.5, &quot;sellPrice&quot;: 1356.7, &quot;targetPrice&quot;: 1350.0}, {&quot;label&quot;: &quot;ASHOK LEYLAND&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 295636.85, &quot;investedAmount&quot;: 14441.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 100.0, &quot;buyPrice&quot;: 144.41, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 200.0}, {&quot;label&quot;: &quot;AAVAS&quot;, &quot;date&quot;: &quot;2026-06-12&quot;, &quot;invested&quot;: 307021.65, &quot;investedAmount&quot;: 11384.8, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 8.0, &quot;buyPrice&quot;: 1423.1, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1800.0}, {&quot;label&quot;: &quot;SUNDARMFIN&quot;, &quot;date&quot;: &quot;2026-06-15&quot;, &quot;invested&quot;: 320257.65, &quot;investedAmount&quot;: 13236.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 3.0, &quot;buyPrice&quot;: 4412.0, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 5200.0}, {&quot;label&quot;: &quot;SUDARSCHEM&quot;, &quot;date&quot;: &quot;2026-06-18&quot;, &quot;invested&quot;: 330428.25, &quot;investedAmount&quot;: 10170.6, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 11.0, &quot;buyPrice&quot;: 924.6, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1150.0}, {&quot;label&quot;: &quot;SPECTRUM&quot;, &quot;date&quot;: &quot;2026-06-18&quot;, &quot;invested&quot;: 340979.25, &quot;investedAmount&quot;: 10551.0, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1758.5, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 2200.0}, {&quot;label&quot;: &quot;SUBROS&quot;, &quot;date&quot;: &quot;2026-06-22&quot;, &quot;invested&quot;: 351009.45, &quot;investedAmount&quot;: 10030.2, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 12.0, &quot;buyPrice&quot;: 835.85, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 1000.0}, {&quot;label&quot;: &quot;HERITGFOOD&quot;, &quot;date&quot;: &quot;2026-06-25&quot;, &quot;invested&quot;: 361153.95, &quot;investedAmount&quot;: 10144.5, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 30.0, &quot;buyPrice&quot;: 338.15, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 426.0}, {&quot;label&quot;: &quot;SAIL&quot;, &quot;date&quot;: &quot;2026-06-29&quot;, &quot;invested&quot;: 371315.55, &quot;investedAmount&quot;: 10161.6, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 58.0, &quot;buyPrice&quot;: 175.2, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 200.0}, {&quot;label&quot;: &quot;ONGC&quot;, &quot;date&quot;: &quot;2026-07-08&quot;, &quot;invested&quot;: 381441.73, &quot;investedAmount&quot;: 10126.18, &quot;realized&quot;: 4208.0, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 41.0, &quot;buyPrice&quot;: 246.98, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 268.0}, {&quot;label&quot;: &quot;SKYGOLD&quot;, &quot;date&quot;: &quot;2026-07-09&quot;, &quot;invested&quot;: 391301.33, &quot;investedAmount&quot;: 9859.6, &quot;realized&quot;: 6854.4, &quot;realizedChange&quot;: 2646.4, &quot;eventLabel&quot;: &quot;Realized profit&quot;, &quot;qty&quot;: 20.0, &quot;buyPrice&quot;: 492.98, &quot;sellPrice&quot;: 625.3, &quot;targetPrice&quot;: 621.0}, {&quot;label&quot;: &quot;BHARTIARTL&quot;, &quot;date&quot;: &quot;2026-07-09&quot;, &quot;invested&quot;: 402952.13, &quot;investedAmount&quot;: 11650.8, &quot;realized&quot;: 6854.4, &quot;realizedChange&quot;: 0, &quot;eventLabel&quot;: &quot;Bet added&quot;, &quot;qty&quot;: 6.0, &quot;buyPrice&quot;: 1941.8, &quot;sellPrice&quot;: null, &quot;targetPrice&quot;: 2150.0}]'></div>
     </section>
 
     <section class="grid">
@@ -629,35 +776,35 @@ th.sorted-desc::after {
                     <tr>
                         <td class="rank">1</td>
                         <td><strong>MOTILALOFS</strong></td>
-                        <td class="positive">+34.90%</td>
+                        <td class="positive">+36.85%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">2</td>
                         <td><strong>AVG</strong></td>
-                        <td class="positive">+18.45%</td>
+                        <td class="positive">+19.19%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">3</td>
-                        <td><strong>OBEROIRLTY</strong></td>
-                        <td class="positive">+11.75%</td>
+                        <td><strong>KALYANIKWELLERS</strong></td>
+                        <td class="positive">+11.82%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">4</td>
-                        <td><strong>SPECTRUM</strong></td>
-                        <td class="positive">+9.62%</td>
+                        <td><strong>OBEROIRLTY</strong></td>
+                        <td class="positive">+9.72%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">5</td>
-                        <td><strong>ASHOK LEYLAND</strong></td>
-                        <td class="positive">+8.88%</td>
+                        <td><strong>SPECTRUM</strong></td>
+                        <td class="positive">+8.39%</td>
                     </tr>
                     
                     </tbody>
@@ -676,36 +823,36 @@ th.sorted-desc::after {
                         
                     <tr>
                         <td class="rank">1</td>
-                        <td><strong>PURVA</strong></td>
-                        <td class="negative">-8.41%</td>
+                        <td><strong>HARIOMPIPE</strong></td>
+                        <td class="negative">-7.91%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">2</td>
-                        <td><strong>ATULAUTO</strong></td>
-                        <td class="negative">-7.00%</td>
+                        <td><strong>PURVA</strong></td>
+                        <td class="negative">-7.89%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">3</td>
-                        <td><strong>HARIOMPIPE</strong></td>
-                        <td class="negative">-6.89%</td>
+                        <td><strong>ICICIB22</strong></td>
+                        <td class="negative">-6.19%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">4</td>
                         <td><strong>SAIL</strong></td>
-                        <td class="negative">-6.67%</td>
+                        <td class="negative">-5.11%</td>
                     </tr>
                     
 
                     <tr>
                         <td class="rank">5</td>
-                        <td><strong>ICICIB22</strong></td>
-                        <td class="negative">-5.85%</td>
+                        <td><strong>ATULAUTO</strong></td>
+                        <td class="negative">-5.09%</td>
                     </tr>
                     
                     </tbody>
@@ -718,7 +865,7 @@ th.sorted-desc::after {
             <div class="table-wrap">
                 <table>
                     <thead>
-                        <tr><th>Rank</th><th>Ticker</th><th>Access</th></tr>
+                        <tr><th>Rank</th><th>Ticker</th><th>Target</th></tr>
                     </thead>
                     <tbody>
                         
@@ -761,10 +908,10 @@ th.sorted-desc::after {
                         </td>
                         <td>8.0</td>
                         <td>1,423.10</td>
-                        <td>1,509.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹689.60</td>
-                        <td class="positive">+6.06%</td>
+                        <td>1,505.10</td>
+                        <td>1,800.00</td>
+                        <td class="positive">₹656.00</td>
+                        <td class="positive">+5.76%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -776,10 +923,10 @@ th.sorted-desc::after {
                         </td>
                         <td>100.0</td>
                         <td>144.41</td>
-                        <td>157.23</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,282.00</td>
-                        <td class="positive">+8.88%</td>
+                        <td>155.12</td>
+                        <td>200.00</td>
+                        <td class="positive">₹1,071.00</td>
+                        <td class="positive">+7.42%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -791,10 +938,10 @@ th.sorted-desc::after {
                         </td>
                         <td>57.0</td>
                         <td>175.60</td>
-                        <td>208.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,846.80</td>
-                        <td class="positive">+18.45%</td>
+                        <td>209.30</td>
+                        <td>250.00</td>
+                        <td class="positive">₹1,920.90</td>
+                        <td class="positive">+19.19%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -806,10 +953,10 @@ th.sorted-desc::after {
                         </td>
                         <td>31.0</td>
                         <td>323.00</td>
-                        <td>326.35</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹103.85</td>
-                        <td class="positive">+1.04%</td>
+                        <td>323.30</td>
+                        <td>500.00</td>
+                        <td class="positive">₹9.30</td>
+                        <td class="positive">+0.09%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -821,10 +968,10 @@ th.sorted-desc::after {
                         </td>
                         <td>6.0</td>
                         <td>1,941.80</td>
-                        <td>1,939.50</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-13.80</td>
-                        <td class="negative">-0.12%</td>
+                        <td>1,931.20</td>
+                        <td>2,150.00</td>
+                        <td class="negative">₹-63.60</td>
+                        <td class="negative">-0.55%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -836,10 +983,10 @@ th.sorted-desc::after {
                         </td>
                         <td>41.0</td>
                         <td>246.98</td>
-                        <td>245.37</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-66.01</td>
-                        <td class="negative">-0.65%</td>
+                        <td>243.66</td>
+                        <td>268.00</td>
+                        <td class="negative">₹-136.12</td>
+                        <td class="negative">-1.34%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -851,10 +998,10 @@ th.sorted-desc::after {
                         </td>
                         <td>58.0</td>
                         <td>175.20</td>
-                        <td>163.52</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-677.44</td>
-                        <td class="negative">-6.67%</td>
+                        <td>166.24</td>
+                        <td>200.00</td>
+                        <td class="negative">₹-519.68</td>
+                        <td class="negative">-5.11%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -866,10 +1013,10 @@ th.sorted-desc::after {
                         </td>
                         <td>30.0</td>
                         <td>338.15</td>
-                        <td>330.10</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-241.50</td>
-                        <td class="negative">-2.38%</td>
+                        <td>334.35</td>
+                        <td>426.00</td>
+                        <td class="negative">₹-114.00</td>
+                        <td class="negative">-1.12%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -881,10 +1028,10 @@ th.sorted-desc::after {
                         </td>
                         <td>12.0</td>
                         <td>835.85</td>
-                        <td>807.95</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-334.80</td>
-                        <td class="negative">-3.34%</td>
+                        <td>812.65</td>
+                        <td>1,000.00</td>
+                        <td class="negative">₹-278.40</td>
+                        <td class="negative">-2.78%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -896,10 +1043,10 @@ th.sorted-desc::after {
                         </td>
                         <td>6.0</td>
                         <td>1,758.50</td>
-                        <td>1,927.70</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,015.20</td>
-                        <td class="positive">+9.62%</td>
+                        <td>1,906.00</td>
+                        <td>2,200.00</td>
+                        <td class="positive">₹885.00</td>
+                        <td class="positive">+8.39%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -911,10 +1058,10 @@ th.sorted-desc::after {
                         </td>
                         <td>11.0</td>
                         <td>924.60</td>
-                        <td>943.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹205.70</td>
-                        <td class="positive">+2.02%</td>
+                        <td>941.85</td>
+                        <td>1,150.00</td>
+                        <td class="positive">₹189.75</td>
+                        <td class="positive">+1.87%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -926,10 +1073,10 @@ th.sorted-desc::after {
                         </td>
                         <td>3.0</td>
                         <td>4,412.00</td>
-                        <td>4,665.70</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹761.10</td>
-                        <td class="positive">+5.75%</td>
+                        <td>4,631.00</td>
+                        <td>5,200.00</td>
+                        <td class="positive">₹657.00</td>
+                        <td class="positive">+4.96%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -941,10 +1088,10 @@ th.sorted-desc::after {
                         </td>
                         <td>15.0</td>
                         <td>814.00</td>
-                        <td>851.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹555.00</td>
-                        <td class="positive">+4.55%</td>
+                        <td>860.00</td>
+                        <td>1,026.00</td>
+                        <td class="positive">₹690.00</td>
+                        <td class="positive">+5.65%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -956,10 +1103,10 @@ th.sorted-desc::after {
                         </td>
                         <td>25.0</td>
                         <td>415.80</td>
-                        <td>387.15</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-716.25</td>
-                        <td class="negative">-6.89%</td>
+                        <td>382.90</td>
+                        <td>560.00</td>
+                        <td class="negative">₹-822.50</td>
+                        <td class="negative">-7.91%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -971,10 +1118,10 @@ th.sorted-desc::after {
                         </td>
                         <td>6.0</td>
                         <td>1,707.70</td>
-                        <td>1,908.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,203.60</td>
-                        <td class="positive">+11.75%</td>
+                        <td>1,873.70</td>
+                        <td>2,152.00</td>
+                        <td class="positive">₹996.00</td>
+                        <td class="positive">+9.72%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -986,10 +1133,10 @@ th.sorted-desc::after {
                         </td>
                         <td>43.0</td>
                         <td>238.00</td>
-                        <td>217.99</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-860.43</td>
-                        <td class="negative">-8.41%</td>
+                        <td>219.23</td>
+                        <td>280.00</td>
+                        <td class="negative">₹-807.11</td>
+                        <td class="negative">-7.89%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1001,10 +1148,10 @@ th.sorted-desc::after {
                         </td>
                         <td>7.0</td>
                         <td>1,551.60</td>
-                        <td>1,551.10</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-3.50</td>
-                        <td class="negative">-0.03%</td>
+                        <td>1,555.10</td>
+                        <td>2,000.00</td>
+                        <td class="positive">₹24.50</td>
+                        <td class="positive">+0.23%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1016,10 +1163,10 @@ th.sorted-desc::after {
                         </td>
                         <td>20.0</td>
                         <td>517.15</td>
-                        <td>480.95</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-724.00</td>
-                        <td class="negative">-7.00%</td>
+                        <td>490.85</td>
+                        <td>600.00</td>
+                        <td class="negative">₹-526.00</td>
+                        <td class="negative">-5.09%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1031,10 +1178,10 @@ th.sorted-desc::after {
                         </td>
                         <td>10.0</td>
                         <td>1,095.20</td>
-                        <td>1,082.60</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-126.00</td>
-                        <td class="negative">-1.15%</td>
+                        <td>1,091.30</td>
+                        <td>1,380.00</td>
+                        <td class="negative">₹-39.00</td>
+                        <td class="negative">-0.36%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1046,10 +1193,10 @@ th.sorted-desc::after {
                         </td>
                         <td>13.0</td>
                         <td>810.00</td>
-                        <td>843.40</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹434.20</td>
-                        <td class="positive">+4.12%</td>
+                        <td>851.30</td>
+                        <td>1,000.00</td>
+                        <td class="positive">₹536.90</td>
+                        <td class="positive">+5.10%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1061,10 +1208,10 @@ th.sorted-desc::after {
                         </td>
                         <td>20.0</td>
                         <td>544.60</td>
-                        <td>572.40</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹556.00</td>
-                        <td class="positive">+5.10%</td>
+                        <td>573.00</td>
+                        <td>800.00</td>
+                        <td class="positive">₹568.00</td>
+                        <td class="positive">+5.21%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1076,10 +1223,10 @@ th.sorted-desc::after {
                         </td>
                         <td>100.0</td>
                         <td>112.33</td>
-                        <td>112.13</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-20.00</td>
-                        <td class="negative">-0.18%</td>
+                        <td>111.73</td>
+                        <td>140.00</td>
+                        <td class="negative">₹-60.00</td>
+                        <td class="negative">-0.53%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1091,10 +1238,10 @@ th.sorted-desc::after {
                         </td>
                         <td>500.0</td>
                         <td>123.58</td>
-                        <td>116.35</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-3,615.00</td>
-                        <td class="negative">-5.85%</td>
+                        <td>115.93</td>
+                        <td>130.00</td>
+                        <td class="negative">₹-3,825.00</td>
+                        <td class="negative">-6.19%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1106,10 +1253,10 @@ th.sorted-desc::after {
                         </td>
                         <td>26.0</td>
                         <td>396.75</td>
-                        <td>375.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-565.50</td>
-                        <td class="negative">-5.48%</td>
+                        <td>443.65</td>
+                        <td>500.00</td>
+                        <td class="positive">₹1,219.40</td>
+                        <td class="positive">+11.82%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1121,10 +1268,10 @@ th.sorted-desc::after {
                         </td>
                         <td>15.0</td>
                         <td>690.00</td>
-                        <td>930.80</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹3,612.00</td>
-                        <td class="positive">+34.90%</td>
+                        <td>944.25</td>
+                        <td>1,000.00</td>
+                        <td class="positive">₹3,813.75</td>
+                        <td class="positive">+36.85%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1136,10 +1283,10 @@ th.sorted-desc::after {
                         </td>
                         <td>25.0</td>
                         <td>427.75</td>
-                        <td>456.80</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹726.25</td>
-                        <td class="positive">+6.79%</td>
+                        <td>453.55</td>
+                        <td>520.00</td>
+                        <td class="positive">₹645.00</td>
+                        <td class="positive">+6.03%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1151,10 +1298,10 @@ th.sorted-desc::after {
                         </td>
                         <td>20.0</td>
                         <td>503.40</td>
-                        <td>529.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹512.00</td>
-                        <td class="positive">+5.09%</td>
+                        <td>521.20</td>
+                        <td>635.00</td>
+                        <td class="positive">₹356.00</td>
+                        <td class="positive">+3.54%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
