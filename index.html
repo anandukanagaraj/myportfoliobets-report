@@ -344,6 +344,54 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
+.chart-context {
+    align-items: center;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 13px;
+    font-weight: 700;
+    gap: 12px 18px;
+    margin: 18px 0 -6px;
+}
+
+.chart-subtitle {
+    color: #334155;
+}
+
+.chart-legend {
+    align-items: center;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 11px;
+    font-weight: 700;
+    gap: 10px 12px;
+    justify-content: flex-end;
+    margin: 4px 72px 0 0;
+}
+
+.legend-item {
+    align-items: center;
+    display: inline-flex;
+    gap: 6px;
+}
+
+.legend-dot {
+    background: #ffffff;
+    border: 2px solid #0284c7;
+    border-radius: 999px;
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+}
+
+.legend-star {
+    color: #f59e0b;
+    font-size: 12px;
+    line-height: 1;
+}
+
 .period-controls {
     display: flex;
     flex-wrap: wrap;
@@ -388,28 +436,24 @@ tbody tr:hover {
 }
 
 .chart-area {
-    fill: rgba(14, 165, 233, 0.12);
+    fill: rgba(14, 165, 233, 0.09);
 }
 
 .chart-line {
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-width: 3;
+    stroke-width: 2.6;
 }
 
 .chart-line.realized {
     stroke: #0284c7;
 }
 
-.chart-area {
-    fill: rgba(14, 165, 233, 0.10);
-}
-
 .line-chart circle {
     fill: #ffffff;
     stroke: #0284c7;
-    stroke-width: 3;
+    stroke-width: 2.6;
 }
 
 .line-chart circle.bet-added {
@@ -710,19 +754,19 @@ th.sorted-desc::after {
         <div>
             <p class="eyebrow">Daily Portfolio Report</p>
             <h1>Stock Monitor</h1>
-            <p class="hero-meta">Generated 10-Jul-2026 at 03:10 PM</p>
+            <p class="hero-meta">Generated 12-Jul-2026 at 02:54 PM</p>
             <p class="hero-disclaimer">Disclaimer: This is a personal trading tracker, not stock tips, investment advice, or buy/sell recommendations.</p>
         </div>
         <div class="hero-metrics">
             <div class="hero-profit">
                 <span>Total investment</span>
-                <strong>₹488,906.57</strong>
-                <span>Open + closed trade capital</span>
+                <strong>₹428,986.97</strong>
+                <span>Open trades capital</span>
             </div>
             <div class="hero-profit">
                 <span>Realized profit</span>
                 <strong class="positive">₹6,854.40</strong>
-                <span>1.40% realized return</span>
+                <span>1.60% realized return</span>
             </div>
         </div>
     </section>
@@ -874,7 +918,7 @@ th.sorted-desc::after {
             <div class="table-wrap">
                 <table>
                     <thead>
-                        <tr><th>Rank</th><th>Ticker</th><th>Access</th></tr>
+                        <tr><th>Rank</th><th>Ticker</th><th>Target</th></tr>
                     </thead>
                     <tbody>
                         
@@ -938,513 +982,33 @@ th.sorted-desc::after {
                 <tbody>
                     
                     <tr>
-                        <td data-sort-value="bfinvest">
-                            <strong>BFINVEST</strong>
-                            <span class="subtle">Bet 37</span>
+                        <td data-sort-value="tanla">
+                            <strong>TANLA</strong>
+                            <span class="subtle">Bet 1</span>
                         </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>21.0</td>
-                        <td>486.40</td>
-                        <td>488.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹33.60</td>
-                        <td class="positive">+0.33%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="hdfcbank">
-                            <strong>HDFCBANK</strong>
-                            <span class="subtle">Bet 36</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>15.0</td>
-                        <td>826.15</td>
-                        <td>825.45</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-10.50</td>
-                        <td class="negative">-0.08%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="jiofin">
-                            <strong>JIOFIN</strong>
-                            <span class="subtle">Bet 35</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>42.0</td>
-                        <td>241.92</td>
-                        <td>241.59</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-13.86</td>
-                        <td class="negative">-0.14%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="hindzinc">
-                            <strong>HINDZINC</strong>
-                            <span class="subtle">Bet 34</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td data-sort-value="2026-01-23">23/01/2026</td>
                         <td>20.0</td>
-                        <td>542.70</td>
-                        <td>536.25</td>
+                        <td>503.40</td>
+                        <td>547.70</td>
                         <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-129.00</td>
-                        <td class="negative">-1.19%</td>
+                        <td class="positive">₹886.00</td>
+                        <td class="positive">+8.80%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
 
                     <tr>
-                        <td data-sort-value="nationalum">
-                            <strong>NATIONALUM</strong>
-                            <span class="subtle">Bet 33</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>28.0</td>
-                        <td>363.00</td>
-                        <td>354.75</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-231.00</td>
-                        <td class="negative">-2.27%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="cdsl">
-                            <strong>CDSL</strong>
-                            <span class="subtle">Bet 32</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>8.0</td>
-                        <td>1,424.00</td>
-                        <td>1,432.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹64.00</td>
-                        <td class="positive">+0.56%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="hindcopper">
-                            <strong>HINDCOPPER</strong>
-                            <span class="subtle">Bet 31</span>
-                        </td>
-                        <td data-sort-value="2026-07-10">10/07/2026</td>
-                        <td>20.0</td>
-                        <td>505.00</td>
-                        <td>499.10</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-118.00</td>
-                        <td class="negative">-1.17%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="gmbrew">
-                            <strong>GMBREW</strong>
-                            <span class="subtle">Bet 30</span>
-                        </td>
-                        <td data-sort-value="2026-07-09">09/07/2026</td>
-                        <td>11.0</td>
-                        <td>970.65</td>
-                        <td>942.45</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-310.20</td>
-                        <td class="negative">-2.91%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="bhartiartl">
-                            <strong>BHARTIARTL</strong>
-                            <span class="subtle">Bet 29</span>
-                        </td>
-                        <td data-sort-value="2026-07-09">09/07/2026</td>
-                        <td>6.0</td>
-                        <td>1,941.80</td>
-                        <td>1,918.90</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-137.40</td>
-                        <td class="negative">-1.18%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="ongc">
-                            <strong>ONGC</strong>
-                            <span class="subtle">Bet 28</span>
-                        </td>
-                        <td data-sort-value="2026-07-08">08/07/2026</td>
-                        <td>41.0</td>
-                        <td>246.98</td>
-                        <td>244.89</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-85.69</td>
-                        <td class="negative">-0.85%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="sail">
-                            <strong>SAIL</strong>
-                            <span class="subtle">Bet 27</span>
-                        </td>
-                        <td data-sort-value="2026-06-29">29/06/2026</td>
-                        <td>58.0</td>
-                        <td>175.20</td>
-                        <td>167.96</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-419.92</td>
-                        <td class="negative">-4.13%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="heritgfood">
-                            <strong>HERITGFOOD</strong>
-                            <span class="subtle">Bet 26</span>
-                        </td>
-                        <td data-sort-value="2026-06-25">25/06/2026</td>
-                        <td>30.0</td>
-                        <td>338.15</td>
-                        <td>336.50</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-49.50</td>
-                        <td class="negative">-0.49%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="subros">
-                            <strong>SUBROS</strong>
-                            <span class="subtle">Bet 25</span>
-                        </td>
-                        <td data-sort-value="2026-06-22">22/06/2026</td>
-                        <td>12.0</td>
-                        <td>835.85</td>
-                        <td>823.50</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-148.20</td>
-                        <td class="negative">-1.48%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="spectrum">
-                            <strong>SPECTRUM</strong>
-                            <span class="subtle">Bet 24</span>
-                        </td>
-                        <td data-sort-value="2026-06-18">18/06/2026</td>
-                        <td>6.0</td>
-                        <td>1,758.50</td>
-                        <td>1,925.10</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹999.60</td>
-                        <td class="positive">+9.47%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="sudarschem">
-                            <strong>SUDARSCHEM</strong>
-                            <span class="subtle">Bet 23</span>
-                        </td>
-                        <td data-sort-value="2026-06-18">18/06/2026</td>
-                        <td>11.0</td>
-                        <td>924.60</td>
-                        <td>989.20</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹710.60</td>
-                        <td class="positive">+6.99%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="sundarmfin">
-                            <strong>SUNDARMFIN</strong>
-                            <span class="subtle">Bet 22</span>
-                        </td>
-                        <td data-sort-value="2026-06-15">15/06/2026</td>
-                        <td>3.0</td>
-                        <td>4,412.00</td>
-                        <td>4,577.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹495.00</td>
-                        <td class="positive">+3.74%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="aavas">
-                            <strong>AAVAS</strong>
-                            <span class="subtle">Bet 21</span>
-                        </td>
-                        <td data-sort-value="2026-06-12">12/06/2026</td>
-                        <td>8.0</td>
-                        <td>1,423.10</td>
-                        <td>1,518.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹759.20</td>
-                        <td class="positive">+6.67%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="ashok leyland">
-                            <strong>ASHOK LEYLAND</strong>
-                            <span class="subtle">Bet 20</span>
-                        </td>
-                        <td data-sort-value="2026-06-12">12/06/2026</td>
-                        <td>100.0</td>
-                        <td>144.41</td>
-                        <td>157.54</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,313.00</td>
-                        <td class="positive">+9.09%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="avg">
-                            <strong>AVG</strong>
-                            <span class="subtle">Bet 19</span>
-                        </td>
-                        <td data-sort-value="2026-06-11">11/06/2026</td>
-                        <td>57.0</td>
-                        <td>175.60</td>
-                        <td>209.50</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,932.30</td>
-                        <td class="positive">+19.31%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="genesys">
-                            <strong>GENESYS</strong>
-                            <span class="subtle">Bet 18</span>
-                        </td>
-                        <td data-sort-value="2026-06-10">10/06/2026</td>
-                        <td>31.0</td>
-                        <td>323.00</td>
-                        <td>327.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹124.00</td>
-                        <td class="positive">+1.24%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="shaktipump">
-                            <strong>SHAKTIPUMP</strong>
-                            <span class="subtle">Bet 17</span>
-                        </td>
-                        <td data-sort-value="2026-06-05">05/06/2026</td>
-                        <td>20.0</td>
-                        <td>544.60</td>
-                        <td>579.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹694.00</td>
-                        <td class="positive">+6.37%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="ideaforge">
-                            <strong>IDEAFORGE</strong>
-                            <span class="subtle">Bet 7</span>
-                        </td>
-                        <td data-sort-value="2026-06-05">05/06/2026</td>
-                        <td>15.0</td>
-                        <td>814.00</td>
-                        <td>900.75</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,301.25</td>
-                        <td class="positive">+10.66%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="hariompipe">
-                            <strong>HARIOMPIPE</strong>
-                            <span class="subtle">Bet 16</span>
-                        </td>
-                        <td data-sort-value="2026-05-26">26/05/2026</td>
-                        <td>25.0</td>
-                        <td>415.80</td>
-                        <td>384.00</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-795.00</td>
-                        <td class="negative">-7.65%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="oberoirlty">
-                            <strong>OBEROIRLTY</strong>
-                            <span class="subtle">Bet 15</span>
-                        </td>
-                        <td data-sort-value="2026-05-25">25/05/2026</td>
-                        <td>6.0</td>
-                        <td>1,707.70</td>
-                        <td>1,928.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,323.60</td>
-                        <td class="positive">+12.92%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="purva">
-                            <strong>PURVA</strong>
-                            <span class="subtle">Bet 12</span>
-                        </td>
-                        <td data-sort-value="2026-05-19">19/05/2026</td>
-                        <td>43.0</td>
-                        <td>238.00</td>
-                        <td>223.73</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-613.61</td>
-                        <td class="negative">-6.00%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="eclerx">
-                            <strong>ECLERX</strong>
-                            <span class="subtle">Bet 11</span>
-                        </td>
-                        <td data-sort-value="2026-05-19">19/05/2026</td>
-                        <td>7.0</td>
-                        <td>1,551.60</td>
-                        <td>1,620.60</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹483.00</td>
-                        <td class="positive">+4.45%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="atulauto">
-                            <strong>ATULAUTO</strong>
-                            <span class="subtle">Bet 10</span>
-                        </td>
-                        <td data-sort-value="2026-05-15">15/05/2026</td>
-                        <td>20.0</td>
-                        <td>517.15</td>
-                        <td>490.85</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-526.00</td>
-                        <td class="negative">-5.09%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="carboruniv">
-                            <strong>CARBORUNIV</strong>
-                            <span class="subtle">Bet 9</span>
-                        </td>
-                        <td data-sort-value="2026-05-15">15/05/2026</td>
-                        <td>10.0</td>
-                        <td>1,095.20</td>
-                        <td>1,084.30</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-109.00</td>
-                        <td class="negative">-1.00%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="ndrauto">
-                            <strong>NDRAUTO</strong>
-                            <span class="subtle">Bet 8</span>
-                        </td>
-                        <td data-sort-value="2026-05-15">15/05/2026</td>
-                        <td>13.0</td>
-                        <td>810.00</td>
-                        <td>860.90</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹661.70</td>
-                        <td class="positive">+6.28%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="devyani">
-                            <strong>DEVYANI</strong>
-                            <span class="subtle">Bet 6</span>
-                        </td>
-                        <td data-sort-value="2026-04-27">27/04/2026</td>
-                        <td>100.0</td>
-                        <td>112.33</td>
-                        <td>112.43</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹10.00</td>
-                        <td class="positive">+0.09%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="icicib22">
-                            <strong>ICICIB22</strong>
-                            <span class="subtle">Bet 5</span>
-                        </td>
-                        <td data-sort-value="2026-04-15">15/04/2026</td>
-                        <td>500.0</td>
-                        <td>123.58</td>
-                        <td>117.18</td>
-                        <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="negative">₹-3,200.00</td>
-                        <td class="negative">-5.18%</td>
-                        <td><span class="pill info">Hold</span></td>
-                    </tr>
-                    
-
-                    <tr>
-                        <td data-sort-value="kalyanikwellers">
-                            <strong>KALYANIKWELLERS</strong>
-                            <span class="subtle">Bet 4</span>
+                        <td data-sort-value="chamblfert">
+                            <strong>CHAMBLFERT</strong>
+                            <span class="subtle">Bet 2</span>
                         </td>
                         <td data-sort-value="2026-03-25">25/03/2026</td>
-                        <td>26.0</td>
-                        <td>396.75</td>
-                        <td>472.60</td>
+                        <td>25.0</td>
+                        <td>427.75</td>
+                        <td>453.45</td>
                         <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹1,972.10</td>
-                        <td class="positive">+19.12%</td>
+                        <td class="positive">₹642.50</td>
+                        <td class="positive">+6.01%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1466,33 +1030,513 @@ th.sorted-desc::after {
                     
 
                     <tr>
-                        <td data-sort-value="chamblfert">
-                            <strong>CHAMBLFERT</strong>
-                            <span class="subtle">Bet 2</span>
+                        <td data-sort-value="kalyanikwellers">
+                            <strong>KALYANIKWELLERS</strong>
+                            <span class="subtle">Bet 4</span>
                         </td>
                         <td data-sort-value="2026-03-25">25/03/2026</td>
-                        <td>25.0</td>
-                        <td>427.75</td>
-                        <td>453.45</td>
+                        <td>26.0</td>
+                        <td>396.75</td>
+                        <td>472.60</td>
                         <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹642.50</td>
-                        <td class="positive">+6.01%</td>
+                        <td class="positive">₹1,972.10</td>
+                        <td class="positive">+19.12%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
 
                     <tr>
-                        <td data-sort-value="tanla">
-                            <strong>TANLA</strong>
-                            <span class="subtle">Bet 1</span>
+                        <td data-sort-value="icicib22">
+                            <strong>ICICIB22</strong>
+                            <span class="subtle">Bet 5</span>
                         </td>
-                        <td data-sort-value="2026-01-23">23/01/2026</td>
-                        <td>20.0</td>
-                        <td>503.40</td>
-                        <td>547.70</td>
+                        <td data-sort-value="2026-04-15">15/04/2026</td>
+                        <td>500.0</td>
+                        <td>123.58</td>
+                        <td>117.18</td>
                         <td><span class="pill neutral-pill">Locked</span></td>
-                        <td class="positive">₹886.00</td>
-                        <td class="positive">+8.80%</td>
+                        <td class="negative">₹-3,200.00</td>
+                        <td class="negative">-5.18%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="devyani">
+                            <strong>DEVYANI</strong>
+                            <span class="subtle">Bet 6</span>
+                        </td>
+                        <td data-sort-value="2026-04-27">27/04/2026</td>
+                        <td>100.0</td>
+                        <td>112.33</td>
+                        <td>112.43</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹10.00</td>
+                        <td class="positive">+0.09%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="ideaforge">
+                            <strong>IDEAFORGE</strong>
+                            <span class="subtle">Bet 7</span>
+                        </td>
+                        <td data-sort-value="2026-06-05">05/06/2026</td>
+                        <td>15.0</td>
+                        <td>814.00</td>
+                        <td>900.75</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹1,301.25</td>
+                        <td class="positive">+10.66%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="ndrauto">
+                            <strong>NDRAUTO</strong>
+                            <span class="subtle">Bet 8</span>
+                        </td>
+                        <td data-sort-value="2026-05-15">15/05/2026</td>
+                        <td>13.0</td>
+                        <td>810.00</td>
+                        <td>860.90</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹661.70</td>
+                        <td class="positive">+6.28%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="carboruniv">
+                            <strong>CARBORUNIV</strong>
+                            <span class="subtle">Bet 9</span>
+                        </td>
+                        <td data-sort-value="2026-05-15">15/05/2026</td>
+                        <td>10.0</td>
+                        <td>1,095.20</td>
+                        <td>1,084.30</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-109.00</td>
+                        <td class="negative">-1.00%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="atulauto">
+                            <strong>ATULAUTO</strong>
+                            <span class="subtle">Bet 10</span>
+                        </td>
+                        <td data-sort-value="2026-05-15">15/05/2026</td>
+                        <td>20.0</td>
+                        <td>517.15</td>
+                        <td>490.85</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-526.00</td>
+                        <td class="negative">-5.09%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="eclerx">
+                            <strong>ECLERX</strong>
+                            <span class="subtle">Bet 11</span>
+                        </td>
+                        <td data-sort-value="2026-05-19">19/05/2026</td>
+                        <td>7.0</td>
+                        <td>1,551.60</td>
+                        <td>1,620.60</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹483.00</td>
+                        <td class="positive">+4.45%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="purva">
+                            <strong>PURVA</strong>
+                            <span class="subtle">Bet 12</span>
+                        </td>
+                        <td data-sort-value="2026-05-19">19/05/2026</td>
+                        <td>43.0</td>
+                        <td>238.00</td>
+                        <td>223.73</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-613.61</td>
+                        <td class="negative">-6.00%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="oberoirlty">
+                            <strong>OBEROIRLTY</strong>
+                            <span class="subtle">Bet 15</span>
+                        </td>
+                        <td data-sort-value="2026-05-25">25/05/2026</td>
+                        <td>6.0</td>
+                        <td>1,707.70</td>
+                        <td>1,928.30</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹1,323.60</td>
+                        <td class="positive">+12.92%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="hariompipe">
+                            <strong>HARIOMPIPE</strong>
+                            <span class="subtle">Bet 16</span>
+                        </td>
+                        <td data-sort-value="2026-05-26">26/05/2026</td>
+                        <td>25.0</td>
+                        <td>415.80</td>
+                        <td>384.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-795.00</td>
+                        <td class="negative">-7.65%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="shaktipump">
+                            <strong>SHAKTIPUMP</strong>
+                            <span class="subtle">Bet 17</span>
+                        </td>
+                        <td data-sort-value="2026-06-05">05/06/2026</td>
+                        <td>20.0</td>
+                        <td>544.60</td>
+                        <td>579.30</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹694.00</td>
+                        <td class="positive">+6.37%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="genesys">
+                            <strong>GENESYS</strong>
+                            <span class="subtle">Bet 18</span>
+                        </td>
+                        <td data-sort-value="2026-06-10">10/06/2026</td>
+                        <td>31.0</td>
+                        <td>323.00</td>
+                        <td>327.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹124.00</td>
+                        <td class="positive">+1.24%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="avg">
+                            <strong>AVG</strong>
+                            <span class="subtle">Bet 19</span>
+                        </td>
+                        <td data-sort-value="2026-06-11">11/06/2026</td>
+                        <td>57.0</td>
+                        <td>175.60</td>
+                        <td>209.50</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹1,932.30</td>
+                        <td class="positive">+19.31%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="ashok leyland">
+                            <strong>ASHOK LEYLAND</strong>
+                            <span class="subtle">Bet 20</span>
+                        </td>
+                        <td data-sort-value="2026-06-12">12/06/2026</td>
+                        <td>100.0</td>
+                        <td>144.41</td>
+                        <td>157.54</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹1,313.00</td>
+                        <td class="positive">+9.09%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="aavas">
+                            <strong>AAVAS</strong>
+                            <span class="subtle">Bet 21</span>
+                        </td>
+                        <td data-sort-value="2026-06-12">12/06/2026</td>
+                        <td>8.0</td>
+                        <td>1,423.10</td>
+                        <td>1,518.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹759.20</td>
+                        <td class="positive">+6.67%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="sundarmfin">
+                            <strong>SUNDARMFIN</strong>
+                            <span class="subtle">Bet 22</span>
+                        </td>
+                        <td data-sort-value="2026-06-15">15/06/2026</td>
+                        <td>3.0</td>
+                        <td>4,412.00</td>
+                        <td>4,577.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹495.00</td>
+                        <td class="positive">+3.74%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="sudarschem">
+                            <strong>SUDARSCHEM</strong>
+                            <span class="subtle">Bet 23</span>
+                        </td>
+                        <td data-sort-value="2026-06-18">18/06/2026</td>
+                        <td>11.0</td>
+                        <td>924.60</td>
+                        <td>989.20</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹710.60</td>
+                        <td class="positive">+6.99%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="spectrum">
+                            <strong>SPECTRUM</strong>
+                            <span class="subtle">Bet 24</span>
+                        </td>
+                        <td data-sort-value="2026-06-18">18/06/2026</td>
+                        <td>6.0</td>
+                        <td>1,758.50</td>
+                        <td>1,925.10</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹999.60</td>
+                        <td class="positive">+9.47%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="subros">
+                            <strong>SUBROS</strong>
+                            <span class="subtle">Bet 25</span>
+                        </td>
+                        <td data-sort-value="2026-06-22">22/06/2026</td>
+                        <td>12.0</td>
+                        <td>835.85</td>
+                        <td>823.50</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-148.20</td>
+                        <td class="negative">-1.48%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="heritgfood">
+                            <strong>HERITGFOOD</strong>
+                            <span class="subtle">Bet 26</span>
+                        </td>
+                        <td data-sort-value="2026-06-25">25/06/2026</td>
+                        <td>30.0</td>
+                        <td>338.15</td>
+                        <td>336.50</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-49.50</td>
+                        <td class="negative">-0.49%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="sail">
+                            <strong>SAIL</strong>
+                            <span class="subtle">Bet 27</span>
+                        </td>
+                        <td data-sort-value="2026-06-29">29/06/2026</td>
+                        <td>58.0</td>
+                        <td>175.20</td>
+                        <td>167.96</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-419.92</td>
+                        <td class="negative">-4.13%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="ongc">
+                            <strong>ONGC</strong>
+                            <span class="subtle">Bet 28</span>
+                        </td>
+                        <td data-sort-value="2026-07-08">08/07/2026</td>
+                        <td>41.0</td>
+                        <td>246.98</td>
+                        <td>244.89</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-85.69</td>
+                        <td class="negative">-0.85%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="bhartiartl">
+                            <strong>BHARTIARTL</strong>
+                            <span class="subtle">Bet 29</span>
+                        </td>
+                        <td data-sort-value="2026-07-09">09/07/2026</td>
+                        <td>6.0</td>
+                        <td>1,941.80</td>
+                        <td>1,918.90</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-137.40</td>
+                        <td class="negative">-1.18%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="gmbrew">
+                            <strong>GMBREW</strong>
+                            <span class="subtle">Bet 30</span>
+                        </td>
+                        <td data-sort-value="2026-07-09">09/07/2026</td>
+                        <td>11.0</td>
+                        <td>970.65</td>
+                        <td>942.45</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-310.20</td>
+                        <td class="negative">-2.91%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="hindcopper">
+                            <strong>HINDCOPPER</strong>
+                            <span class="subtle">Bet 31</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>20.0</td>
+                        <td>505.00</td>
+                        <td>499.10</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-118.00</td>
+                        <td class="negative">-1.17%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="cdsl">
+                            <strong>CDSL</strong>
+                            <span class="subtle">Bet 32</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>8.0</td>
+                        <td>1,424.00</td>
+                        <td>1,432.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹64.00</td>
+                        <td class="positive">+0.56%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="nationalum">
+                            <strong>NATIONALUM</strong>
+                            <span class="subtle">Bet 33</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>28.0</td>
+                        <td>363.00</td>
+                        <td>354.75</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-231.00</td>
+                        <td class="negative">-2.27%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="hindzinc">
+                            <strong>HINDZINC</strong>
+                            <span class="subtle">Bet 34</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>20.0</td>
+                        <td>542.70</td>
+                        <td>536.25</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-129.00</td>
+                        <td class="negative">-1.19%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="jiofin">
+                            <strong>JIOFIN</strong>
+                            <span class="subtle">Bet 35</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>42.0</td>
+                        <td>241.92</td>
+                        <td>241.59</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-13.86</td>
+                        <td class="negative">-0.14%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="hdfcbank">
+                            <strong>HDFCBANK</strong>
+                            <span class="subtle">Bet 36</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>15.0</td>
+                        <td>826.15</td>
+                        <td>825.45</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="negative">₹-10.50</td>
+                        <td class="negative">-0.08%</td>
+                        <td><span class="pill info">Hold</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="bfinvest">
+                            <strong>BFINVEST</strong>
+                            <span class="subtle">Bet 37</span>
+                        </td>
+                        <td data-sort-value="2026-07-10">10/07/2026</td>
+                        <td>21.0</td>
+                        <td>486.40</td>
+                        <td>488.00</td>
+                        <td><span class="pill neutral-pill">Locked</span></td>
+                        <td class="positive">₹33.60</td>
+                        <td class="positive">+0.33%</td>
                         <td><span class="pill info">Hold</span></td>
                     </tr>
                     
@@ -1522,22 +1566,6 @@ th.sorted-desc::after {
                 <tbody>
                     
                     <tr>
-                        <td data-sort-value="skygold">
-                            <strong>SKYGOLD</strong>
-                            <span class="subtle">Bet 14</span>
-                        </td>
-                        <td data-sort-value="2026-05-20">20/05/2026</td>
-                        <td>20.0</td>
-                        <td>492.98</td>
-                        <td>625.30</td>
-                        <td class="positive">₹2,646.40</td>
-                        <td class="positive">+26.84%</td>
-                        <td data-sort-value="2026-07-09">09/07/2026</td>
-                        <td><span class="pill neutral-pill">CLOSED</span></td>
-                    </tr>
-                    
-
-                    <tr>
                         <td data-sort-value="axisbank">
                             <strong>AXISBANK</strong>
                             <span class="subtle">Bet 13</span>
@@ -1549,6 +1577,22 @@ th.sorted-desc::after {
                         <td class="positive">₹4,208.00</td>
                         <td class="positive">+8.41%</td>
                         <td data-sort-value="2026-06-12">12/06/2026</td>
+                        <td><span class="pill neutral-pill">CLOSED</span></td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td data-sort-value="skygold">
+                            <strong>SKYGOLD</strong>
+                            <span class="subtle">Bet 14</span>
+                        </td>
+                        <td data-sort-value="2026-05-20">20/05/2026</td>
+                        <td>20.0</td>
+                        <td>492.98</td>
+                        <td>625.30</td>
+                        <td class="positive">₹2,646.40</td>
+                        <td class="positive">+26.84%</td>
+                        <td data-sort-value="2026-07-09">09/07/2026</td>
                         <td><span class="pill neutral-pill">CLOSED</span></td>
                     </tr>
                     
@@ -1631,14 +1675,16 @@ th.sorted-desc::after {
             "2y": 730
         };
 
+        const currentPeriod = period || "all";
         let points = datedPoints;
-        if (period === "ytd" && latestDate) {
-            const start = new Date(latestDate.getFullYear(), 0, 1);
-            points = datedPoints.filter((point) => point.parsedDate && point.parsedDate >= start);
-        } else if (period !== "all" && latestDate) {
-            const start = new Date(latestDate);
-            start.setDate(start.getDate() - daysByPeriod[period] + 1);
-            points = datedPoints.filter((point) => point.parsedDate && point.parsedDate >= start);
+        let periodStart = null;
+        if (currentPeriod === "ytd" && latestDate) {
+            periodStart = new Date(latestDate.getFullYear(), 0, 1);
+            points = datedPoints.filter((point) => point.parsedDate && point.parsedDate >= periodStart);
+        } else if (currentPeriod !== "all" && latestDate) {
+            periodStart = new Date(latestDate);
+            periodStart.setDate(periodStart.getDate() - daysByPeriod[currentPeriod] + 1);
+            points = datedPoints.filter((point) => point.parsedDate && point.parsedDate >= periodStart);
         }
 
         if (!points.length) {
@@ -1658,8 +1704,8 @@ th.sorted-desc::after {
         const rawMin = Math.min(...values);
         const rawMax = Math.max(...values);
         const padding = Math.max((rawMax - rawMin) * 0.18, rawMax * 0.04, 1);
-        const minValue = rawMin - padding;
-        const maxValue = rawMax + padding;
+        const minValue = rawMin >= 0 ? 0 : rawMin - padding;
+        const maxValue = Math.max(rawMax + padding, minValue + 1);
         const valueRange = Math.max(maxValue - minValue, 1);
 
         const scaled = points.map((point, index) => {
@@ -1682,7 +1728,7 @@ th.sorted-desc::after {
             return `${point.label} - Bet added`;
         }
 
-        function starPath(x, y, outerRadius = 7.2, innerRadius = 3.2) {
+        function starPath(x, y, outerRadius = 6.5, innerRadius = 2.9) {
             const points = [];
             for (let i = 0; i < 10; i += 1) {
                 const angle = (-Math.PI / 2) + (i * Math.PI / 5);
@@ -1725,7 +1771,7 @@ th.sorted-desc::after {
         const lastPoint = points[points.length - 1];
         const firstPoint = points[0];
         const previousPoint = points.length > 1 ? points[points.length - 2] : firstPoint;
-        const totalInvestment = Number(lastPoint.invested) || 0;
+        const totalInvestment = 428986.97;
         const realizedProfit = Number(lastPoint.realized) || 0;
         const lastBookedChange = realizedProfit - (Number(previousPoint.realized) || 0);
         const periodChange = realizedProfit - (Number(firstPoint.realized) || 0);
@@ -1738,11 +1784,79 @@ th.sorted-desc::after {
             const y = padY + plotHeight - ((value - minValue) / valueRange * plotHeight);
             return `<text x="${plotRight + 10}" y="${y + 4}" class="chart-label axis-right">${money.format(value)}</text>`;
         }).join("");
-        const xLabels = scaled
-            .filter((_, index) => index === 0 || index === Math.floor((scaled.length - 1) / 2) || index === scaled.length - 1)
-            .map((point, index, labels) => {
-                const cssClass = index === labels.length - 1 ? "chart-label end" : "chart-label";
-                return `<text x="${point.x.toFixed(1)}" y="${height - 5}" class="${cssClass}">${formatDate(point.date)}</text>`;
+        function axisDateLabel(value, activePeriod) {
+            const date = value instanceof Date ? value : parseDate(value);
+            if (!date) {
+                return value || "";
+            }
+
+            const compactPeriods = new Set(["1m", "3m"]);
+            const options = compactPeriods.has(activePeriod)
+                ? { day: "2-digit", month: "short" }
+                : { month: "short", year: "2-digit" };
+            return date.toLocaleDateString("en-IN", options);
+        }
+
+        function pickAxisPoints(chartPoints, activePeriod) {
+            if (chartPoints.length <= 1) {
+                return chartPoints.map((point) => ({
+                    x: point.x,
+                    label: axisDateLabel(point.date, activePeriod)
+                }));
+            }
+
+            const minLabelGap = ["1m", "3m"].includes(activePeriod) ? 120 : 138;
+            const candidates = [];
+            const addCandidate = (point) => {
+                if (!point) {
+                    return;
+                }
+                candidates.push({
+                    x: point.x,
+                    label: axisDateLabel(point.date, activePeriod),
+                    parsedDate: point.parsedDate
+                });
+            };
+
+            addCandidate(chartPoints[0]);
+            if (["1m", "3m"].includes(activePeriod)) {
+                addCandidate(chartPoints[Math.floor((chartPoints.length - 1) / 2)]);
+            } else {
+                const seenMonths = new Set();
+                chartPoints.forEach((point) => {
+                    if (!point.parsedDate) {
+                        return;
+                    }
+                    const monthKey = `${point.parsedDate.getFullYear()}-${point.parsedDate.getMonth()}`;
+                    if (!seenMonths.has(monthKey)) {
+                        seenMonths.add(monthKey);
+                        addCandidate(point);
+                    }
+                });
+            }
+            addCandidate(chartPoints[chartPoints.length - 1]);
+
+            const sorted = candidates.sort((a, b) => a.x - b.x);
+            const labels = [];
+            const usedLabels = new Set();
+            sorted.forEach((item) => {
+                const previous = labels[labels.length - 1];
+                if (!item.label || usedLabels.has(item.label)) {
+                    return;
+                }
+                if (!previous || item.x - previous.x >= minLabelGap) {
+                    labels.push(item);
+                    usedLabels.add(item.label);
+                }
+            });
+            return labels;
+        }
+
+        const axisPoints = pickAxisPoints(scaled, currentPeriod);
+        const xLabels = axisPoints
+            .map((item, index) => {
+                const cssClass = index === axisPoints.length - 1 ? "chart-label end" : "chart-label";
+                return `<text x="${item.x.toFixed(1)}" y="${height - 5}" class="${cssClass}">${item.label}</text>`;
             })
             .join("");
 
@@ -1757,9 +1871,12 @@ th.sorted-desc::after {
                     <strong class="${realizedProfit >= 0 ? "positive" : "negative"}">${realizedReturn.toFixed(2)}%</strong>
                 </div>
                 <div class="chart-stat">
-                    <span>${periodLabel} Booked Change</span>
+                    <span>${periodLabel} Booked Profit</span>
                     <strong class="${periodClass}">${money.format(periodChange)}</strong>
                 </div>
+            </div>
+            <div class="chart-context">
+                <span class="chart-subtitle">Booked profit over time</span>
             </div>
             <svg class="line-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Portfolio return">
                 <line x1="${padX}" y1="${height - padY}" x2="${plotRight}" y2="${height - padY}" class="axis"></line>
@@ -1769,6 +1886,10 @@ th.sorted-desc::after {
                 ${xLabels}
                 ${yLabels}
             </svg>
+            <div class="chart-legend">
+                <span class="legend-item"><span class="legend-dot"></span> Bet added</span>
+                <span class="legend-item"><span class="legend-star">&#9733;</span> Profit realized</span>
+            </div>
         `;
     }
 
